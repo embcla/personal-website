@@ -11,6 +11,7 @@ import argparse
 import sys
 import hashlib
 
+
 def get_file_hash(file_path):
     """Calculate SHA-256 hash of a file."""
     sha256_hash = hashlib.sha256()
@@ -108,11 +109,84 @@ def download_file(url, local_path, referer=None):
     except Exception as e:
         return False, str(e)
 
-def process_html_file(file_path, verbose=False):
-    """Process HTML file to replace CDN links with local ones and report stats."""
+def process_css_file(css_path, verbose=False):
+    """Process CSS file to download and update font references."""
+    print(f"\nProcessing CSS file {css_path}...")
+    
+    # Read the CSS file
+    try:
+        with open(css_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    except Exception as e:
+        print(f"Error reading CSS file {css_path}: {e}")
+        return False
+    
+    # Find all font URLs in the CSS file
+    font_url_pattern = r'url\([\'"]?(https://[^\'"]+)[\'"]?\)'
+    font_urls = re.findall(font_url_pattern, content)
+    
+    if not font_urls:
+        return True
+    
+    # Stats
+    found = len(font_urls)
+    already_local = 0
+    downloaded = 0
+    errors = []
+    
+    def update_progress():
+        """Print current progress"""
+        print(f"\r  Found: {found} | Already local: {already_local} | Downloaded: {downloaded} | Errors: {len(errors)}", end='', flush=True)
+    
+    # Process each font URL
+    for font_url in font_urls:
+        if verbose:
+            print(f"\nFound font URL: {font_url}")
+        
+        filename = clean_filename(font_url)
+        fonts_dir = Path('fonts')
+        local_path = fonts_dir / filename
+        
+        if local_path.exists():
+            already_local += 1
+        else:
+            if verbose:
+                print(f"Downloading font {filename}...")
+            result = download_file(font_url, local_path, referer=str(css_path))
+            if isinstance(result, tuple):
+                success, error = result
+                if not success:
+                    errors.append(f"Failed to download font {filename}: {error}")
+                    continue
+            downloaded += 1
+        
+        # Replace font URL in CSS content
+        local_url = f"../fonts/{filename}"
+        content = content.replace(font_url, local_url)
+        update_progress()
+    
+    # Write the modified CSS content back to file
+    try:
+        with open(css_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+    except Exception as e:
+        errors.append(f"Failed to write CSS file: {e}")
+        return False
+    
+    print(f"\nCompleted processing CSS file {css_path}")
+    print(f"  Found: {found} | Already local: {already_local} | Downloaded: {downloaded} | Errors: {len(errors)}")
+    if errors:
+        print("  Errors:")
+        for error in errors:
+            print(f"    - {error}")
+    
+    return True
+
+def process_source_file(file_path, verbose=False, is_css=False):
+    """Process HTML or CSS file to replace CDN links with local ones and report stats."""
     print(f"\nProcessing {file_path}...")
     
-    # Read the HTML file
+    # Read the source file
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -123,7 +197,7 @@ def process_html_file(file_path, verbose=False):
     # Find all CDN links in src and srcset attributes
     cdn_pattern = r'https://cdn\.prod\.website-files\.com/[^"\']+'
     
-    # Use HTML file stem as context
+    # Use source file stem as context
     context = Path(file_path).stem
     
     # Stats
@@ -136,14 +210,21 @@ def process_html_file(file_path, verbose=False):
         """Print current progress"""
         print(f"\r  Found: {len(found)} | Already local: {already_local} | Downloaded: {downloaded} | Errors: {len(errors)}", end='', flush=True)
     
-    def handle_file_download(url, filename, is_css=False):
-        """Handle file download with collision detection for CSS files."""
-        images_dir = Path('images')
-        local_path = images_dir / filename
+    def handle_file_download(url, filename):
+        """Handle file download with collision detection."""
+        # Determine file type and appropriate directory
+        if 'css' in filename:
+            base_dir = Path('css')
+        elif any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']):
+            base_dir = Path('fonts')
+        else:
+            base_dir = Path('images')
+            
+        local_path = base_dir / filename
         
         if local_path.exists():
-            if is_css:
-                # For CSS files, compare content
+            # For CSS files, compare content
+            if 'css' in filename:
                 remote_hash = get_remote_file_hash(url, referer=str(file_path))
                 if remote_hash is None:
                     return None, f"Failed to get remote file hash for {url}"
@@ -174,27 +255,28 @@ def process_html_file(file_path, verbose=False):
                 return None, f"Failed to download {filename}: {error}"
         return local_path, None
     
-    # Process srcset attributes
-    srcset_pattern = r'srcset="([^"]+)"'
-    for match in re.finditer(srcset_pattern, content):
-        srcset = match.group(1)
-        urls = [url.strip().split(' ')[0] for url in srcset.split(',')]
-        for url in urls:
-            if 'cdn.prod.website-files.com' in url:
-                found.add(url)
-                if verbose:
-                    print(f"\nFound URL: {url}")
-                filename = clean_filename(url, context)
-                local_path, error = handle_file_download(url, filename)
-                if error:
-                    errors.append(error)
-                    continue
-                if local_path:
-                    already_local += 1
-                    # Replace URL in srcset
-                    local_url = f"images/{local_path.name}"
-                    content = content.replace(url, local_url)
-                update_progress()
+    # Process srcset attributes (only for HTML files)
+    if not is_css:
+        srcset_pattern = r'srcset="([^"]+)"'
+        for match in re.finditer(srcset_pattern, content):
+            srcset = match.group(1)
+            urls = [url.strip().split(' ')[0] for url in srcset.split(',')]
+            for url in urls:
+                if 'cdn.prod.website-files.com' in url:
+                    found.add(url)
+                    if verbose:
+                        print(f"\nFound URL: {url}")
+                    filename = clean_filename(url, context)
+                    local_path, error = handle_file_download(url, filename)
+                    if error:
+                        errors.append(error)
+                        continue
+                    if local_path:
+                        already_local += 1
+                        # Replace URL in srcset
+                        local_url = f"images/{local_path.name}"
+                        content = content.replace(url, local_url)
+                    update_progress()
     
     # Process regular src attributes and other CDN links
     cdn_links = re.findall(cdn_pattern, content)
@@ -203,14 +285,19 @@ def process_html_file(file_path, verbose=False):
         if verbose:
             print(f"\nFound URL: {cdn_url}")
         filename = clean_filename(cdn_url, context)
-        is_css = 'css' in filename
-        local_path, error = handle_file_download(cdn_url, filename, is_css)
+        local_path, error = handle_file_download(cdn_url, filename)
         if error:
             errors.append(error)
             continue
         if local_path:
             already_local += 1
-            local_url = f"images/{local_path.name}"
+            # Determine the correct relative path based on file type
+            if 'css' in filename:
+                local_url = f"css/{local_path.name}"
+            elif any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']):
+                local_url = f"fonts/{local_path.name}"
+            else:
+                local_url = f"images/{local_path.name}"
             content = content.replace(cdn_url, local_url)
         update_progress()
     
@@ -233,9 +320,15 @@ def main():
     parser.add_argument('-v', '--verbose', action='store_true', help='Show detailed output including URLs and download progress')
     args = parser.parse_args()
     
-    # Process all HTML files recursively
+    # First pass: Process all HTML files
+    print("\n=== First Pass: Processing HTML Files ===")
     for html_file in Path('.').rglob('*.html'):
-        process_html_file(html_file, args.verbose)
+        process_source_file(html_file, args.verbose)
+    
+    # Second pass: Process all CSS files
+    print("\n=== Second Pass: Processing CSS Files ===")
+    for css_file in Path('css').rglob('*.css'):
+        process_source_file(css_file, args.verbose, is_css=True)
 
 if __name__ == "__main__":
     main() 
