@@ -194,20 +194,34 @@ def process_source_file(file_path, verbose=False, is_css=False):
         print(f"Error reading file {file_path}: {e}")
         return
     
+    # Remove Webflow-specific data attributes from HTML files
+    if not is_css:
+        webflow_attrs = ['data-wf-domain', 'data-wf-page', 'data-wf-site']
+        for attr in webflow_attrs:
+            content = re.sub(f' {attr}="[^"]*"', '', content)
+            if verbose:
+                print(f"\nRemoved {attr} attribute")
+    
     # Find all CDN links in src and srcset attributes
-    cdn_pattern = r'https://cdn\.prod\.website-files\.com/[^"\']+'
+    if is_css:
+        # For CSS files, look for URLs in url() functions and background-image properties
+        cdn_pattern = r'(url\(["\']?|background-image:\s*url\(["\']?)(https://[^"\')]+)(["\']?\))'
+    else:
+        # For HTML files, look for direct URLs
+        cdn_pattern = r'https://cdn\.prod\.website-files\.com/[^"\']+'
     
     # Use source file stem as context
     context = Path(file_path).stem
     
     # Stats
-    found = set()
-    already_local = 0
-    downloaded = 0
+    found = set()  # Set of unique URLs found
+    processed = {}  # Dict to track processed URLs and their status
     errors = []
     
     def update_progress():
         """Print current progress"""
+        already_local = sum(1 for status in processed.values() if status == 'local')
+        downloaded = sum(1 for status in processed.values() if status == 'downloaded')
         print(f"\r  Found: {len(found)} | Already local: {already_local} | Downloaded: {downloaded} | Errors: {len(errors)}", end='', flush=True)
     
     def handle_file_download(url, filename):
@@ -234,18 +248,15 @@ def process_source_file(file_path, verbose=False, is_css=False):
                     return local_path, None
                 
                 # Content is different, find new filename
-                while True:
-                    local_path = find_next_available_filename(local_path, local_path.suffix)
-                    if not local_path.exists():
-                        break
-                    local_hash = get_file_hash(local_path)
-                    if remote_hash == local_hash:
-                        return local_path, None
+                new_path = find_next_available_filename(local_path, local_path.suffix)
+                if verbose:
+                    print(f"\nFile {filename} exists but content differs. Using {new_path.name}")
+                return new_path, None
             else:
                 # For non-CSS files, just use existing file
                 return local_path, None
         
-        # File doesn't exist or is different, download it
+        # File doesn't exist, download it
         if verbose:
             print(f"\nDownloading {filename}...")
         result = download_file(url, local_path, referer=str(file_path))
@@ -270,36 +281,71 @@ def process_source_file(file_path, verbose=False, is_css=False):
                     local_path, error = handle_file_download(url, filename)
                     if error:
                         errors.append(error)
+                        processed[url] = 'error'
                         continue
                     if local_path:
-                        already_local += 1
+                        if local_path.exists():
+                            processed[url] = 'local'
+                        else:
+                            processed[url] = 'downloaded'
                         # Replace URL in srcset
                         local_url = f"images/{local_path.name}"
                         content = content.replace(url, local_url)
                     update_progress()
     
     # Process regular src attributes and other CDN links
-    cdn_links = re.findall(cdn_pattern, content)
-    for cdn_url in cdn_links:
-        found.add(cdn_url)
-        if verbose:
-            print(f"\nFound URL: {cdn_url}")
-        filename = clean_filename(cdn_url, context)
-        local_path, error = handle_file_download(cdn_url, filename)
-        if error:
-            errors.append(error)
-            continue
-        if local_path:
-            already_local += 1
-            # Determine the correct relative path based on file type
-            if 'css' in filename:
-                local_url = f"css/{local_path.name}"
-            elif any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']):
-                local_url = f"fonts/{local_path.name}"
-            else:
-                local_url = f"images/{local_path.name}"
-            content = content.replace(cdn_url, local_url)
-        update_progress()
+    if is_css:
+        for match in re.finditer(cdn_pattern, content):
+            prefix, cdn_url, suffix = match.groups()
+            found.add(cdn_url)
+            if verbose:
+                print(f"\nFound URL: {cdn_url}")
+            filename = clean_filename(cdn_url, context)
+            local_path, error = handle_file_download(cdn_url, filename)
+            if error:
+                errors.append(error)
+                processed[cdn_url] = 'error'
+                continue
+            if local_path:
+                if local_path.exists():
+                    processed[cdn_url] = 'local'
+                else:
+                    processed[cdn_url] = 'downloaded'
+                # Determine the correct relative path based on file type
+                if 'css' in filename:
+                    local_url = f"css/{local_path.name}"
+                elif any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']):
+                    local_url = f"fonts/{local_path.name}"
+                else:
+                    local_url = f"images/{local_path.name}"
+                # Replace the matched string with the local URL
+                content = content.replace(f"{prefix}{cdn_url}{suffix}", f"{prefix}{local_url}{suffix}")
+            update_progress()
+    else:
+        for cdn_url in re.findall(cdn_pattern, content):
+            found.add(cdn_url)
+            if verbose:
+                print(f"\nFound URL: {cdn_url}")
+            filename = clean_filename(cdn_url, context)
+            local_path, error = handle_file_download(cdn_url, filename)
+            if error:
+                errors.append(error)
+                processed[cdn_url] = 'error'
+                continue
+            if local_path:
+                if local_path.exists():
+                    processed[cdn_url] = 'local'
+                else:
+                    processed[cdn_url] = 'downloaded'
+                # Determine the correct relative path based on file type
+                if 'css' in filename:
+                    local_url = f"css/{local_path.name}"
+                elif any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']):
+                    local_url = f"fonts/{local_path.name}"
+                else:
+                    local_url = f"images/{local_path.name}"
+                content = content.replace(cdn_url, local_url)
+            update_progress()
     
     # Write the modified content back to file
     try:
@@ -307,6 +353,10 @@ def process_source_file(file_path, verbose=False, is_css=False):
             f.write(content)
     except Exception as e:
         errors.append(f"Failed to write file: {e}")
+    
+    # Calculate final stats
+    already_local = sum(1 for status in processed.values() if status == 'local')
+    downloaded = sum(1 for status in processed.values() if status == 'downloaded')
     
     print(f"\nCompleted processing {file_path}")
     print(f"  Found: {len(found)} | Already local: {already_local} | Downloaded: {downloaded} | Errors: {len(errors)}")
