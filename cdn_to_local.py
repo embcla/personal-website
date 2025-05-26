@@ -12,7 +12,11 @@ import sys
 import hashlib
 
 # List of domains to keep as remote URLs (not downloaded locally)
-DENIED_DOMAINS = set()
+DENIED_DOMAINS = {
+    'cloudfront.net',
+    'google.com',
+    'webflow.com'
+}
 
 def get_file_hash(file_path):
     """Calculate SHA-256 hash of a file."""
@@ -196,14 +200,7 @@ def process_source_file(file_path, verbose=0, is_css=False):
         print(f"Error reading file {file_path}: {e}")
         return
     
-    # Remove Webflow-specific data attributes from HTML files
-    if not is_css:
-        webflow_attrs = ['data-wf-domain', 'data-wf-page', 'data-wf-site']
-        for attr in webflow_attrs:
-            content = re.sub(f' {attr}="[^"]*"', '', content)
-            if verbose >= 2:
-                print(f"\nRemoved {attr} attribute")
-    
+
     # Find all CDN links in src and srcset attributes
     if is_css:
         # For CSS files, look for URLs in url() functions and background-image properties
@@ -295,14 +292,41 @@ def process_source_file(file_path, verbose=0, is_css=False):
         local_path = base_dir / filename
         
         if local_path.exists():
-            # For CSS files, compare content
+            if verbose >= 2:
+                print(f"\nFile exists: {local_path}")
+                print(f"File type: {file_type}, is_css: {is_css}")
+            
+            # For CSS files, we need to be more careful about hash comparison
             if file_type == 'css':
+                # If we're processing a CSS file, just use the existing file
+                if is_css:
+                    if verbose >= 2:
+                        print(f"Using existing CSS file: {local_path}")
+                    return local_path, None
+                
+                # If we're processing an HTML file, we need to check if the CSS file
+                # has already been modified (contains local paths)
+                try:
+                    with open(local_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    # If the file contains local paths (../images or ../fonts), it's already been processed
+                    if '../images' in content or '../fonts' in content:
+                        if verbose >= 2:
+                            print(f"CSS file already contains local paths: {local_path}")
+                        return local_path, None
+                except Exception as e:
+                    if verbose >= 2:
+                        print(f"Error reading CSS file: {e}")
+                
+                # If we get here, we need to compare hashes
                 remote_hash = get_remote_file_hash(url, referer=str(file_path))
                 if remote_hash is None:
                     return None, f"Failed to get remote file hash for {url}"
                 
                 local_hash = get_file_hash(local_path)
                 if remote_hash == local_hash:
+                    if verbose >= 2:
+                        print(f"CSS file hash matches: {local_path}")
                     return local_path, None
                 
                 # Content is different, find new filename
@@ -312,6 +336,8 @@ def process_source_file(file_path, verbose=0, is_css=False):
                 return new_path, None
             else:
                 # For non-CSS files, just use existing file
+                if verbose >= 2:
+                    print(f"Using existing non-CSS file: {local_path}")
                 return local_path, None
         
         # File doesn't exist, download it
@@ -439,6 +465,29 @@ def process_source_file(file_path, verbose=0, is_css=False):
         for error in errors:
             print(f"    - {error}")
 
+def remove_webflow_badge(css_path):
+    """Remove Webflow badge classes from CSS file."""
+    try:
+        with open(css_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Remove all Webflow badge related CSS
+        badge_patterns = [
+            r'\.w-webflow-badge[^{]*{[^}]*}',
+            r'\.w-webflow-badge\s*>\s*img[^{]*{[^}]*}'
+        ]
+        
+        for pattern in badge_patterns:
+            content = re.sub(pattern, '', content)
+        
+        # Write the modified content back to file
+        with open(css_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        return True
+    except Exception as e:
+        print(f"Error removing Webflow badge from {css_path}: {e}")
+        return False
+
 def main():
     parser = argparse.ArgumentParser(description='Download CDN resources and update HTML files with local paths.')
     parser.add_argument('-v', '--verbose', action='count', default=0, help='Verbose output level: 1=show domains, 2=show all URLs')
@@ -455,6 +504,7 @@ def main():
         print(f"\n=== Processing single file: {file_path} ===")
         if file_path.suffix.lower() == '.css':
             process_source_file(file_path, args.verbose, is_css=True)
+            remove_webflow_badge(file_path)
         else:
             process_source_file(file_path, args.verbose)
     else:
@@ -467,6 +517,7 @@ def main():
         print("\n=== Second Pass: Processing CSS Files ===")
         for css_file in Path('css').rglob('*.css'):
             process_source_file(css_file, args.verbose, is_css=True)
+            remove_webflow_badge(css_file)
 
 if __name__ == "__main__":
     main() 
