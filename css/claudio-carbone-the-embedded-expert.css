@@ -294,87 +294,6 @@ pre.w-code-block code {
   display: contents;
 }
 
-.w-webflow-badge, .w-webflow-badge > img {
-  box-sizing: unset;
-  width: unset;
-  height: unset;
-  max-height: unset;
-  max-width: unset;
-  min-height: unset;
-  min-width: unset;
-  margin: unset;
-  padding: unset;
-  float: unset;
-  clear: unset;
-  border: unset;
-  border-radius: unset;
-  background: unset;
-  background-image: unset;
-  background-position: unset;
-  background-size: unset;
-  background-repeat: unset;
-  background-origin: unset;
-  background-clip: unset;
-  background-attachment: unset;
-  background-color: unset;
-  box-shadow: unset;
-  transform: unset;
-  direction: unset;
-  font-family: unset;
-  font-weight: unset;
-  color: unset;
-  font-size: unset;
-  line-height: unset;
-  font-style: unset;
-  font-variant: unset;
-  text-align: unset;
-  letter-spacing: unset;
-  -webkit-text-decoration: unset;
-  text-decoration: unset;
-  text-indent: unset;
-  text-transform: unset;
-  list-style-type: unset;
-  text-shadow: unset;
-  vertical-align: unset;
-  cursor: unset;
-  white-space: unset;
-  word-break: unset;
-  word-spacing: unset;
-  word-wrap: unset;
-  transition: unset;
-}
-
-.w-webflow-badge {
-  white-space: nowrap;
-  cursor: pointer;
-  box-shadow: 0 0 0 1px #0000001a, 0 1px 3px #0000001a;
-  visibility: visible !important;
-  opacity: 1 !important;
-  z-index: 2147483647 !important;
-  color: #aaadb0 !important;
-  overflow: unset !important;
-  background-color: #fff !important;
-  border-radius: 3px !important;
-  width: auto !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 6px !important;
-  font-size: 12px !important;
-  line-height: 14px !important;
-  text-decoration: none !important;
-  display: inline-block !important;
-  position: fixed !important;
-  inset: auto 12px 12px auto !important;
-  transform: none !important;
-}
-
-.w-webflow-badge > img {
-  position: unset;
-  visibility: unset !important;
-  opacity: 1 !important;
-  vertical-align: middle !important;
-  display: inline-block !important;
-}
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 10px;
@@ -2048,7 +1967,7 @@ textarea.w-input, textarea.w-select {
 
 @font-face {
   font-family: Archivo;
-  src: url("fonts/Archivo-Regular.ttf") format("truetype");
+  src: url("../fonts/Archivo-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -2056,7 +1975,7 @@ textarea.w-input, textarea.w-select {
 
 @font-face {
   font-family: Archivo;
-  src: url("fonts/Archivo-Medium.ttf") format("truetype");
+  src: url("../fonts/Archivo-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -2064,7 +1983,7 @@ textarea.w-input, textarea.w-select {
 
 @font-face {
   font-family: Archivo;
-  src: url("fonts/Archivo-Light.ttf") format("truetype");
+  src: url("../fonts/Archivo-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -2072,7 +1991,7 @@ textarea.w-input, textarea.w-select {
 
 @font-face {
   font-family: Archivo;
-  src: url("fonts/Archivo-Bold.ttf") format("truetype");
+  src: url("../fonts/Archivo-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -2080,7 +1999,7 @@ textarea.w-input, textarea.w-select {
 
 @font-face {
   font-family: Archivo;
-  src: url("fonts/Archivo-SemiBold.ttf") format("truetype");
+  src: url("../fonts/Archivo-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -2088,7 +2007,7 @@ textarea.w-input, textarea.w-select {
 
 @font-face {
   font-family: Syne;
-  src: url("fonts/Syne-Medium.ttf") format("truetype");
+  src: url("../fonts/Syne-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -2096,7 +2015,7 @@ textarea.w-input, textarea.w-select {
 
 @font-face {
   font-family: Syne;
-  src: url("fonts/Syne-Bold.ttf") format("truetype");
+  src: url("../fonts/Syne-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -2104,7 +2023,7 @@ textarea.w-input, textarea.w-select {
 
 @font-face {
   font-family: Syne;
-  src: url("fonts/Syne-Regular.ttf") format("truetype");
+  src: url("../fonts/Syne-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -2112,7 +2031,7 @@ textarea.w-input, textarea.w-select {
 
 @font-face {
   font-family: Syne;
-  src: url("fonts/Syne-SemiBold.ttf") format("truetype");
+  src: url("../fonts/Syne-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -2184,7 +2103,7 @@ textarea.w-input, textarea.w-select {
 
 .w-checkbox-input--inputType-custom.w--redirected-checked {
   background-color: #3898ec;
-  background-image: url("images/checkbox-checkmark.589d534424.svg");
+  background-image: url("../images/checkbox-checkmark.589d534424.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2281,7 +2200,7 @@ ul {
 }
 
 li {
-  background-image: url("images/Project-Details-List-Icon.svg");
+  background-image: url("../images/Project-Details-List-Icon.svg");
   background-position: 0%;
   background-repeat: no-repeat;
   background-size: 24px;
@@ -2311,7 +2230,7 @@ blockquote {
 }
 
 .footer {
-  background-image: url("images/Footer-Pattern.png");
+  background-image: url("../images/Footer-Pattern.png");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2337,7 +2256,7 @@ blockquote {
 
 .page-hero {
   background-color: var(--colors--primary-black);
-  background-image: url("images/Page-Hero-BG-Pattern.png");
+  background-image: url("../images/Page-Hero-BG-Pattern.png");
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -2861,7 +2780,7 @@ blockquote {
 
 .utility-page-wrap {
   background-color: var(--colors--primary-black);
-  background-image: url("images/line-bg.png");
+  background-image: url("../images/line-bg.png");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: auto;
@@ -3088,7 +3007,7 @@ blockquote {
 
 .home-hero {
   padding-top: var(--colors--sizes--extra-large);
-  background-image: url("images/line-bg.png");
+  background-image: url("../images/line-bg.png");
   background-position: 50% 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -3431,7 +3350,7 @@ blockquote {
 
 .service-item-overlay {
   pointer-events: none;
-  background-image: url("images/Service-Item-Bg.png");
+  background-image: url("../images/Service-Item-Bg.png");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3443,11 +3362,11 @@ blockquote {
 }
 
 .service-item-overlay.service-page {
-  background-image: url("images/Service-New-Item-BG.svg");
+  background-image: url("../images/Service-New-Item-BG.svg");
 }
 
 .about-me {
-  background-image: url("images/About-Me-Pattern.png");
+  background-image: url("../images/About-Me-Pattern.png");
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -3827,7 +3746,7 @@ blockquote {
 
 .testimonial-slide-content-wrapper {
   background-color: var(--colors--secondary-black);
-  background-image: url("images/Footer-testimonial-blur-shape.png");
+  background-image: url("../images/Footer-testimonial-blur-shape.png");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3939,7 +3858,7 @@ blockquote {
 }
 
 .post-details-section {
-  background-image: url("images/Blog-Details-Hero-Shape.png");
+  background-image: url("../images/Blog-Details-Hero-Shape.png");
   background-position: 100% 0;
   background-repeat: no-repeat;
   background-size: auto;
@@ -3997,7 +3916,7 @@ blockquote {
 .blog-details-content blockquote {
   background-color: var(--colors--secondary-black);
   text-align: center;
-  background-image: url("images/Blog-Quote-Icon.svg");
+  background-image: url("../images/Blog-Quote-Icon.svg");
   background-position: 50% 70px;
   background-repeat: no-repeat;
   background-size: 80px 80px;
@@ -4035,7 +3954,7 @@ blockquote {
 
 .service-summary-list-wrapper li {
   color: var(--colors--white);
-  background-image: url("images/Service-List-Icon.svg");
+  background-image: url("../images/Service-List-Icon.svg");
   background-position: 0%;
   background-repeat: no-repeat;
   background-size: auto;
@@ -4525,7 +4444,7 @@ blockquote {
 
 .service-details-cta-block {
   background-color: var(--colors--secondary-black);
-  background-image: url("images/Service-Cta-Pattern.png");
+  background-image: url("../images/Service-Cta-Pattern.png");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4684,7 +4603,7 @@ blockquote {
 
 .contact-info-list {
   color: var(--colors--white);
-  background-image: url("images/Service-List-Icon.svg");
+  background-image: url("../images/Service-List-Icon.svg");
   background-position: 0%;
   background-repeat: no-repeat;
   background-size: auto;
@@ -4694,7 +4613,7 @@ blockquote {
 }
 
 .contact-info-list.home-v3-info-list {
-  background-image: url("images/home-v3-list-circle.png");
+  background-image: url("../images/home-v3-list-circle.png");
 }
 
 .contact-left-block {
@@ -4908,7 +4827,7 @@ blockquote {
 .bg-home-v2 {
   font-family: var(--colors--sizes--fonts--theme-font-two);
   background-color: #0000;
-  background-image: linear-gradient(#0f1010cc, #0f1010cc), url("images/Home-2-Bg.png");
+  background-image: linear-gradient(#0f1010cc, #0f1010cc), url("../images/Home-2-Bg.png");
   background-position: 0 0, 0 0;
   background-size: auto, auto;
 }
@@ -5734,21 +5653,21 @@ blockquote {
 }
 
 .upcoming-event-item.leadership-summit {
-  background-image: linear-gradient(#171717, #17171700 50%, #171717), url("images/Upcoming-Event-Image1-1-.jpg");
+  background-image: linear-gradient(#171717, #17171700 50%, #171717), url("https://cdn.prod.website-files.com/67fe6c865fd8486d7b051a66/67fe6c875fd8486d7b051bfe_Upcoming%20Event%20Image1%20(1).jpg");
   background-position: 0 0, 50%;
   background-repeat: repeat, no-repeat;
   background-size: auto, cover;
 }
 
 .upcoming-event-item.corporate-motivation {
-  background-image: linear-gradient(#171717, #17171700 50%, #171717), url("images/Upcoming-Event-Image3.jpg");
+  background-image: linear-gradient(#171717, #17171700 50%, #171717), url("../images/Upcoming-Event-Image3.jpg");
   background-position: 0 0, 50%;
   background-repeat: repeat, no-repeat;
   background-size: auto, cover;
 }
 
 .upcoming-event-item.entrepreneurial-success {
-  background-image: linear-gradient(#171717, #17171700 50%, #171717), url("images/Upcoming-Event-Image2.png");
+  background-image: linear-gradient(#171717, #17171700 50%, #171717), url("../images/Upcoming-Event-Image2.png");
   background-position: 0 0, 50%;
   background-repeat: repeat, no-repeat;
   background-size: auto, cover;
@@ -5936,7 +5855,7 @@ blockquote {
 }
 
 .blog-v3-features-item {
-  background-image: url("images/Blog-V3-Featured-Image.jpg");
+  background-image: url("../images/Blog-V3-Featured-Image.jpg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -6480,7 +6399,7 @@ blockquote {
 }
 
 .landing-page-promotioanl-video-section.landing-page-promotional-video-bg {
-  background-image: url("images/bg-image.svg");
+  background-image: url("../images/bg-image.svg");
   background-position: 50% 0;
   background-repeat: no-repeat;
   background-size: auto;
@@ -6488,7 +6407,7 @@ blockquote {
 
 .landing-page-promotioanl-video-section.landing-page-promotional-video-bg.landing-page-padding-top-120px.landing-page-padding-bottom-120px {
   background-color: #000a0b;
-  background-image: url("images/Landing-Hero-Bg.png");
+  background-image: url("../images/Landing-Hero-Bg.png");
   background-position: 50%;
   background-size: cover;
 }
@@ -6874,7 +6793,7 @@ blockquote {
 
 .landing-page-hero-section.landing-page-hero-bg-image.landing-page-hero-padding-top {
   background-color: #000a0b;
-  background-image: url("images/Landing-Hero-Bg.png");
+  background-image: url("../images/Landing-Hero-Bg.png");
   background-position: 50%;
   background-size: cover;
   padding-top: 250px;
@@ -6959,14 +6878,14 @@ blockquote {
 }
 
 .landing-page-footer.landing-page-footer-bg-image {
-  background-image: url("images/bg-image.svg");
+  background-image: url("../images/bg-image.svg");
   background-position: 50% 0;
   background-size: auto;
 }
 
 .landing-page-footer.landing-page-footer-bg-image.landing-page-padding-top-120px {
   background-color: #000a0b;
-  background-image: url("images/Landing-Hero-Bg.png");
+  background-image: url("../images/Landing-Hero-Bg.png");
   background-size: auto;
 }
 
@@ -7034,7 +6953,7 @@ blockquote {
 
 .landing-page-cta-wrapper {
   background-color: var(--colors--primary-red);
-  background-image: url("images/cta-bg-shape.svg");
+  background-image: url("../images/cta-bg-shape.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: auto;
@@ -7135,7 +7054,7 @@ blockquote {
 }
 
 .landing-request-figma-file-section.landing-page-request-figma-bg {
-  background-image: url("images/Figma-File-Bg.png"), linear-gradient(#fff 45%, #0d121c 45%);
+  background-image: url("../images/Figma-File-Bg.png"), linear-gradient(#fff 45%, #0d121c 45%);
   background-position: 50% 100%, 0 0;
   background-repeat: no-repeat, repeat;
   background-size: auto, auto;
@@ -11067,14 +10986,14 @@ blockquote {
   }
 
   .landing-request-figma-file-section.landing-page-request-figma-bg {
-    background-image: url("images/bg-image.svg"), linear-gradient(#fff 50%, #0d121c 50%);
+    background-image: url("../images/bg-image.svg"), linear-gradient(#fff 50%, #0d121c 50%);
     background-position: 50% 100%, 0 0;
     background-repeat: no-repeat, repeat;
     background-size: auto, auto;
   }
 
   .landing-request-figma-file-section.landing-page-request-figma-bg.landing-page-padding-top-120px.landing-page-padding-bottom-120px {
-    background-image: url("images/bg-image.svg"), linear-gradient(#fff 50%, #0d121c 45%);
+    background-image: url("../images/bg-image.svg"), linear-gradient(#fff 50%, #0d121c 45%);
     background-position: 50% 100%, 0 0;
     background-repeat: no-repeat, repeat;
     background-size: auto, auto;
@@ -11689,14 +11608,14 @@ blockquote {
   }
 
   .landing-request-figma-file-section.landing-page-request-figma-bg {
-    background-image: url("images/bg-image.svg"), linear-gradient(#fff 60%, #0d121c 60%);
+    background-image: url("../images/bg-image.svg"), linear-gradient(#fff 60%, #0d121c 60%);
     background-position: 50% 100%, 0 0;
     background-repeat: no-repeat, repeat;
     background-size: auto, auto;
   }
 
   .landing-request-figma-file-section.landing-page-request-figma-bg.landing-page-padding-top-120px.landing-page-padding-bottom-120px {
-    background-image: url("images/bg-image.svg"), linear-gradient(#fff 60%, #0d121c 45%);
+    background-image: url("../images/bg-image.svg"), linear-gradient(#fff 60%, #0d121c 45%);
     background-position: 50% 100%, 0 0;
     background-repeat: no-repeat, repeat;
     background-size: auto, auto;
@@ -11836,4 +11755,5 @@ blockquote {
     grid-row-gap: 0px;
     justify-content: flex-end;
   }
+  
 }
