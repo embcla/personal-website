@@ -11,6 +11,8 @@ import argparse
 import sys
 import hashlib
 
+# List of domains to keep as remote URLs (not downloaded locally)
+DENIED_DOMAINS = set()
 
 def get_file_hash(file_path):
     """Calculate SHA-256 hash of a file."""
@@ -182,7 +184,7 @@ def process_css_file(css_path, verbose=False):
     
     return True
 
-def process_source_file(file_path, verbose=False, is_css=False):
+def process_source_file(file_path, verbose=0, is_css=False):
     """Process HTML or CSS file to replace CDN links with local ones and report stats."""
     print(f"\nProcessing {file_path}...")
     
@@ -199,7 +201,7 @@ def process_source_file(file_path, verbose=False, is_css=False):
         webflow_attrs = ['data-wf-domain', 'data-wf-page', 'data-wf-site']
         for attr in webflow_attrs:
             content = re.sub(f' {attr}="[^"]*"', '', content)
-            if verbose:
+            if verbose >= 2:
                 print(f"\nRemoved {attr} attribute")
     
     # Find all CDN links in src and srcset attributes
@@ -213,32 +215,88 @@ def process_source_file(file_path, verbose=False, is_css=False):
     # Use source file stem as context
     context = Path(file_path).stem
     
+    # Calculate relative paths based on file location
+    file_dir = file_path.parent
+    if is_css:
+        # CSS files are in css/ directory, need to go up one level
+        css_to_root = Path('..')
+        css_to_images = css_to_root / 'images'
+        css_to_fonts = css_to_root / 'fonts'
+    else:
+        # HTML files can be in any directory, calculate relative paths to root
+        html_to_root = Path('/'.join(['..'] * len(file_dir.parts)))
+        html_to_css = html_to_root / 'css'
+        html_to_images = html_to_root / 'images'
+        html_to_fonts = html_to_root / 'fonts'
+    
     # Stats
     found = set()  # Set of unique URLs found
     processed = {}  # Dict to track processed URLs and their status
     errors = []
+    unique_domains = set()  # Track unique domains
+    skipped_domains = set()  # Track domains that were skipped
     
     def update_progress():
         """Print current progress"""
         already_local = sum(1 for status in processed.values() if status == 'local')
         downloaded = sum(1 for status in processed.values() if status == 'downloaded')
-        print(f"\r  Found: {len(found)} | Already local: {already_local} | Downloaded: {downloaded} | Errors: {len(errors)}", end='', flush=True)
+        skipped = sum(1 for status in processed.values() if status == 'skipped')
+        print(f"\r  Found: {len(found)} | Already local: {already_local} | Downloaded: {downloaded} | Skipped: {skipped} | Errors: {len(errors)}", end='', flush=True)
+    
+    def get_local_url(filename, file_type):
+        """Get the correct local URL based on file type and location."""
+        if is_css:
+            if file_type == 'font':
+                return str(css_to_fonts / filename)
+            return str(css_to_images / filename)
+        else:
+            if file_type == 'css':
+                return str(html_to_css / filename)
+            elif file_type == 'font':
+                return str(html_to_fonts / filename)
+            return str(html_to_images / filename)
+    
+    def extract_domain(url):
+        """Extract domain from URL and add to unique_domains set."""
+        try:
+            if not url.startswith(('http://', 'https://')):
+                url = 'https://' + url
+            parsed = urlparse(url)
+            domain = parsed.netloc.replace('www.', '')
+            if domain:
+                unique_domains.add(domain)
+                return domain
+        except Exception as e:
+            if verbose >= 2:
+                print(f"\nError processing URL {url}: {e}")
+        return None
     
     def handle_file_download(url, filename):
         """Handle file download with collision detection."""
+        # Extract domain and check if it's denied
+        domain = extract_domain(url)
+        if domain and domain in DENIED_DOMAINS:
+            if verbose >= 2:
+                print(f"\nSkipping denied domain: {domain}")
+            skipped_domains.add(domain)
+            return None, 'skipped'
+        
         # Determine file type and appropriate directory
         if 'css' in filename:
             base_dir = Path('css')
+            file_type = 'css'
         elif any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']):
             base_dir = Path('fonts')
+            file_type = 'font'
         else:
             base_dir = Path('images')
+            file_type = 'image'
             
         local_path = base_dir / filename
         
         if local_path.exists():
             # For CSS files, compare content
-            if 'css' in filename:
+            if file_type == 'css':
                 remote_hash = get_remote_file_hash(url, referer=str(file_path))
                 if remote_hash is None:
                     return None, f"Failed to get remote file hash for {url}"
@@ -249,7 +307,7 @@ def process_source_file(file_path, verbose=False, is_css=False):
                 
                 # Content is different, find new filename
                 new_path = find_next_available_filename(local_path, local_path.suffix)
-                if verbose:
+                if verbose >= 2:
                     print(f"\nFile {filename} exists but content differs. Using {new_path.name}")
                 return new_path, None
             else:
@@ -257,7 +315,7 @@ def process_source_file(file_path, verbose=False, is_css=False):
                 return local_path, None
         
         # File doesn't exist, download it
-        if verbose:
+        if verbose >= 2:
             print(f"\nDownloading {filename}...")
         result = download_file(url, local_path, referer=str(file_path))
         if isinstance(result, tuple):
@@ -275,10 +333,13 @@ def process_source_file(file_path, verbose=False, is_css=False):
             for url in urls:
                 if 'cdn.prod.website-files.com' in url:
                     found.add(url)
-                    if verbose:
-                        print(f"\nFound URL: {url}")
+                    if verbose >= 2:
+                        print(f"\nFound URL in srcset: {url}")
                     filename = clean_filename(url, context)
                     local_path, error = handle_file_download(url, filename)
+                    if error == 'skipped':
+                        processed[url] = 'skipped'
+                        continue
                     if error:
                         errors.append(error)
                         processed[url] = 'error'
@@ -289,7 +350,7 @@ def process_source_file(file_path, verbose=False, is_css=False):
                         else:
                             processed[url] = 'downloaded'
                         # Replace URL in srcset
-                        local_url = f"images/{local_path.name}"
+                        local_url = get_local_url(local_path.name, 'image')
                         content = content.replace(url, local_url)
                     update_progress()
     
@@ -298,36 +359,43 @@ def process_source_file(file_path, verbose=False, is_css=False):
         for match in re.finditer(cdn_pattern, content):
             prefix, cdn_url, suffix = match.groups()
             found.add(cdn_url)
-            if verbose:
-                print(f"\nFound URL: {cdn_url}")
+            if verbose >= 2:
+                print(f"\nFound URL in CSS: {cdn_url}")
+            
             filename = clean_filename(cdn_url, context)
             local_path, error = handle_file_download(cdn_url, filename)
+            
+            if error == 'skipped':
+                processed[cdn_url] = 'skipped'
+                continue
             if error:
                 errors.append(error)
                 processed[cdn_url] = 'error'
                 continue
+                
             if local_path:
                 if local_path.exists():
                     processed[cdn_url] = 'local'
                 else:
                     processed[cdn_url] = 'downloaded'
-                # Determine the correct relative path based on file type
-                if 'css' in filename:
-                    local_url = f"css/{local_path.name}"
-                elif any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']):
-                    local_url = f"fonts/{local_path.name}"
-                else:
-                    local_url = f"images/{local_path.name}"
+                
+                # Determine file type and get correct local URL
+                file_type = 'font' if any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']) else 'image'
+                local_url = get_local_url(local_path.name, file_type)
+                
                 # Replace the matched string with the local URL
                 content = content.replace(f"{prefix}{cdn_url}{suffix}", f"{prefix}{local_url}{suffix}")
             update_progress()
     else:
         for cdn_url in re.findall(cdn_pattern, content):
             found.add(cdn_url)
-            if verbose:
+            if verbose >= 2:
                 print(f"\nFound URL: {cdn_url}")
             filename = clean_filename(cdn_url, context)
             local_path, error = handle_file_download(cdn_url, filename)
+            if error == 'skipped':
+                processed[cdn_url] = 'skipped'
+                continue
             if error:
                 errors.append(error)
                 processed[cdn_url] = 'error'
@@ -337,13 +405,10 @@ def process_source_file(file_path, verbose=False, is_css=False):
                     processed[cdn_url] = 'local'
                 else:
                     processed[cdn_url] = 'downloaded'
-                # Determine the correct relative path based on file type
-                if 'css' in filename:
-                    local_url = f"css/{local_path.name}"
-                elif any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']):
-                    local_url = f"fonts/{local_path.name}"
-                else:
-                    local_url = f"images/{local_path.name}"
+                
+                # Determine file type and get correct local URL
+                file_type = 'css' if 'css' in filename else 'font' if any(filename.lower().endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.eot', '.otf']) else 'image'
+                local_url = get_local_url(local_path.name, file_type)
                 content = content.replace(cdn_url, local_url)
             update_progress()
     
@@ -357,9 +422,18 @@ def process_source_file(file_path, verbose=False, is_css=False):
     # Calculate final stats
     already_local = sum(1 for status in processed.values() if status == 'local')
     downloaded = sum(1 for status in processed.values() if status == 'downloaded')
+    skipped = sum(1 for status in processed.values() if status == 'skipped')
     
     print(f"\nCompleted processing {file_path}")
-    print(f"  Found: {len(found)} | Already local: {already_local} | Downloaded: {downloaded} | Errors: {len(errors)}")
+    print(f"  Found: {len(found)} | Already local: {already_local} | Downloaded: {downloaded} | Skipped: {skipped} | Errors: {len(errors)}")
+    
+    # Show unique domains if verbose level 1 or higher
+    if verbose >= 1:
+        print("\nUnique domains found:")
+        for domain in sorted(unique_domains):
+            status = " (skipped)" if domain in skipped_domains else ""
+            print(f"  - {domain}{status}")
+    
     if errors:
         print("  Errors:")
         for error in errors:
@@ -367,18 +441,32 @@ def process_source_file(file_path, verbose=False, is_css=False):
 
 def main():
     parser = argparse.ArgumentParser(description='Download CDN resources and update HTML files with local paths.')
-    parser.add_argument('-v', '--verbose', action='store_true', help='Show detailed output including URLs and download progress')
+    parser.add_argument('-v', '--verbose', action='count', default=0, help='Verbose output level: 1=show domains, 2=show all URLs')
+    parser.add_argument('-f', '--file', help='Process a single file instead of all HTML files in the current directory')
     args = parser.parse_args()
     
-    # First pass: Process all HTML files
-    print("\n=== First Pass: Processing HTML Files ===")
-    for html_file in Path('.').rglob('*.html'):
-        process_source_file(html_file, args.verbose)
-    
-    # Second pass: Process all CSS files
-    print("\n=== Second Pass: Processing CSS Files ===")
-    for css_file in Path('css').rglob('*.css'):
-        process_source_file(css_file, args.verbose, is_css=True)
+    if args.file:
+        # Process single file
+        file_path = Path(args.file)
+        if not file_path.exists():
+            print(f"Error: File {args.file} does not exist")
+            sys.exit(1)
+            
+        print(f"\n=== Processing single file: {file_path} ===")
+        if file_path.suffix.lower() == '.css':
+            process_source_file(file_path, args.verbose, is_css=True)
+        else:
+            process_source_file(file_path, args.verbose)
+    else:
+        # First pass: Process all HTML files
+        print("\n=== First Pass: Processing HTML Files ===")
+        for html_file in Path('.').rglob('*.html'):
+            process_source_file(html_file, args.verbose)
+        
+        # Second pass: Process all CSS files
+        print("\n=== Second Pass: Processing CSS Files ===")
+        for css_file in Path('css').rglob('*.css'):
+            process_source_file(css_file, args.verbose, is_css=True)
 
 if __name__ == "__main__":
     main() 
