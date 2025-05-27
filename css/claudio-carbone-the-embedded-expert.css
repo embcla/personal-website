@@ -7976,6 +7976,15 @@ blockquote {
 
 .flex-block {
   align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.languageselector {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .locales-wrapper {
@@ -7984,6 +7993,90 @@ blockquote {
   font-weight: 500;
   line-height: 1.2;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dropdown-toggle img {
+  width: 47px;
+  height: auto;
+  object-fit: contain;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--colors--primary-black);
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 120px;
+  z-index: 1000;
+  display: none;
+}
+
+.dropdown-list.w--open {
+  display: block;
+}
+
+.locales-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.locale {
+  padding: 8px 16px;
+}
+
+.locale .link {
+  color: var(--colors--white);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.locale .link:hover {
+  color: var(--colors--primary-red);
+}
+
+.locale .link.w--current {
+  color: var(--colors--primary-red);
+}
+
+@media screen and (max-width: 767px) {
+  .flex-block {
+    gap: 10px;
+  }
+  
+  .dropdown-toggle img {
+    width: 35px;
+  }
+  
+  .dropdown-list {
+    min-width: 100px;
+  }
+  
+  .locale {
+    padding: 6px 12px;
+  }
+  
+  .locale .link {
+    font-size: 14px;
+  }
 }
 
 .icon {
