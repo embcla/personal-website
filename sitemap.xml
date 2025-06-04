@@ -10,250 +10,138 @@
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/projects
+            https://www.claudio-carbone.tech/projects.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/projects"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/projects"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/projects.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/projects.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/services
+            https://www.claudio-carbone.tech/services.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/about
+            https://www.claudio-carbone.tech/about.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/about"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/about"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/about"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/about.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/about.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/about.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/contact
+            https://www.claudio-carbone.tech/contact.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/contact"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/contact"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/contact"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/contact.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving
+            https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/cross-disciplinary-problem-solving"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/cross-disciplinary-problem-solving.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/services/embedded-sys-consultation
+            https://www.claudio-carbone.tech/services/embedded-sys-consultation.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-sys-consultation"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-sys-consultation"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-sys-consultation"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-sys-consultation.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-sys-consultation.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-sys-consultation.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage
+            https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/issue-analysis-resolution-debugging-triage"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/issue-analysis-resolution-debugging-triage.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/services/process-improvement-agile-transformation
+            https://www.claudio-carbone.tech/services/process-improvement-agile-transformation.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/process-improvement-agile-transformation"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/process-improvement-agile-transformation"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/process-improvement-agile-transformation"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/process-improvement-agile-transformation.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/process-improvement-agile-transformation.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/process-improvement-agile-transformation.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/services/product-development-roadmap-alignment
+            https://www.claudio-carbone.tech/services/product-development-roadmap-alignment.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/product-development-roadmap-alignment"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/product-development-roadmap-alignment"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/product-development-roadmap-alignment"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/product-development-roadmap-alignment.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/product-development-roadmap-alignment.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/product-development-roadmap-alignment.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/services/stakeholder-communication-alignment
+            https://www.claudio-carbone.tech/services/stakeholder-communication-alignment.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/stakeholder-communication-alignment"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/stakeholder-communication-alignment"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/stakeholder-communication-alignment"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/stakeholder-communication-alignment.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/stakeholder-communication-alignment.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/stakeholder-communication-alignment.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/services/technical-leadership-team-coaching
+            https://www.claudio-carbone.tech/services/technical-leadership-team-coaching.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/technical-leadership-team-coaching"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/technical-leadership-team-coaching"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/technical-leadership-team-coaching"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/technical-leadership-team-coaching.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/technical-leadership-team-coaching.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/technical-leadership-team-coaching.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/projects/agvs-for-automated-logistics
+            https://www.claudio-carbone.tech/projects/agvs-for-automated-logistics.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/projects/agvs-for-automated-logistics"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/projects/agvs-for-automated-logistics"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects/agvs-for-automated-logistics"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/projects/agvs-for-automated-logistics.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/projects/agvs-for-automated-logistics.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects/agvs-for-automated-logistics.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/projects/evbox---ev-chargers
+            https://www.claudio-carbone.tech/projects/evbox---ev-chargers.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/projects/evbox---ev-chargers"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/projects/evbox---ev-chargers"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects/evbox---ev-chargers"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/projects/evbox---ev-chargers.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/projects/evbox---ev-chargers.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects/evbox---ev-chargers.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/project-categories/embedded-product
+            https://www.claudio-carbone.tech/project-categories/embedded-product.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/project-categories/embedded-product"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/project-categories/embedded-product"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/project-categories/embedded-product"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/project-categories/embedded-product.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/project-categories/embedded-product.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/project-categories/embedded-product.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/project-categories/industrial-automation
+            https://www.claudio-carbone.tech/project-categories/industrial-automation.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/project-categories/industrial-automation"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/project-categories/industrial-automation"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/project-categories/industrial-automation"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/project-categories/industrial-automation.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/project-categories/industrial-automation.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/project-categories/industrial-automation.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/project-categories/ui-ux-design
+            https://www.claudio-carbone.tech/project-categories/ui-ux-design.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/project-categories/ui-ux-design"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/project-categories/ui-ux-design"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/project-categories/ui-ux-design"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/project-categories/ui-ux-design.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/project-categories/ui-ux-design.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/project-categories/ui-ux-design.html"/>
     </url>
     <url>
         <loc>
-            https://www.claudio-carbone.tech/blog/balancing-design-creativity-with-development-efficiency
+            https://www.claudio-carbone.tech/experience/evbox---ev-chargers.html
         </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/balancing-design-creativity-with-development-efficiency"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/balancing-design-creativity-with-development-efficiency"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/balancing-design-creativity-with-development-efficiency"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog/effective-strategies-for-freelance-web-designers
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/effective-strategies-for-freelance-web-designers"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/effective-strategies-for-freelance-web-designers"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/effective-strategies-for-freelance-web-designers"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog/effective-wireframing-techniques-for-designers
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/effective-wireframing-techniques-for-designers"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/effective-wireframing-techniques-for-designers"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/effective-wireframing-techniques-for-designers"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog/how-to-conduct-user-testing-for-better-results
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/how-to-conduct-user-testing-for-better-results"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/how-to-conduct-user-testing-for-better-results"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/how-to-conduct-user-testing-for-better-results"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog/how-to-create-a-stunning-portfolio-website
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/how-to-create-a-stunning-portfolio-website"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/how-to-create-a-stunning-portfolio-website"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/how-to-create-a-stunning-portfolio-website"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog/the-journey-of-web-design-to-development
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/the-journey-of-web-design-to-development"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/the-journey-of-web-design-to-development"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/the-journey-of-web-design-to-development"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog/the-power-of-user-research-in-web-design
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/the-power-of-user-research-in-web-design"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/the-power-of-user-research-in-web-design"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/the-power-of-user-research-in-web-design"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog/the-role-of-color-psychology-in-web-design
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/the-role-of-color-psychology-in-web-design"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/the-role-of-color-psychology-in-web-design"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/the-role-of-color-psychology-in-web-design"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog/top-10-ux-design-trends-to-watch-in-2024
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/top-10-ux-design-trends-to-watch-in-2024"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/top-10-ux-design-trends-to-watch-in-2024"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/top-10-ux-design-trends-to-watch-in-2024"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog-categories/design
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog-categories/design"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog-categories/design"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog-categories/design"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog-categories/portfolio
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog-categories/portfolio"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog-categories/portfolio"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog-categories/portfolio"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog-categories/ux-design
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog-categories/ux-design"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog-categories/ux-design"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog-categories/ux-design"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog-categories/web-design
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog-categories/web-design"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog-categories/web-design"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog-categories/web-design"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/blog-categories/web-development
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog-categories/web-development"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog-categories/web-development"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog-categories/web-development"/>
-    </url>
-    <url>
-        <loc>
-            https://www.claudio-carbone.tech/experience/evbox---ev-chargers
-        </loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/experience/evbox---ev-chargers"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/experience/evbox---ev-chargers"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/experience/evbox---ev-chargers"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/experience/evbox---ev-chargers.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/experience/evbox---ev-chargers.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/experience/evbox---ev-chargers.html"/>
     </url>
 </urlset>
