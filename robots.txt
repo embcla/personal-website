@@ -10,5 +10,3 @@ Disallow: /*.jpg$
 # Allow CSS and JS for rendering
 Allow: /*.css
 Allow: /*.js
-
-Sitemap: https://claudio-carbone---the-embedded-expert.webflow.io/sitemap.xml
