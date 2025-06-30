@@ -3,7 +3,7 @@
 # Comprehensive website update workflow
 # This script crawls a website, downloads assets, and transforms it for clean URLs
 
-set -e  # Exit on any error
+#set -e  # Exit on any error
 
 # Colors for output
 RED='\033[0;31m'
@@ -40,11 +40,31 @@ if [ $# -eq 0 ]; then
     echo "  --vercel-only Only generate vercel.json, skip HTML transformation"
     echo ""
     echo "Example: $0 https://www.mywebsite.com --verbose"
+fi
+   
+# Parse args: <website_url> [output_folder] [--no-delete]
+NO_DELETE=0
+WEBSITE_URL=""
+OUTPUT_FOLDER=""
+POSITIONAL=()
+for arg in "$@"; do
+    case $arg in
+        --no-delete)
+            NO_DELETE=1
+            ;;
+        *)
+            POSITIONAL+=("$arg")
+            ;;
+    esac
+done
+
+if [ ${#POSITIONAL[@]} -lt 1 ]; then
+    print_error "Usage: $0 <website_url> [output_folder] [--no-delete]"
     exit 1
 fi
 
-WEBSITE_URL=$1
-shift  # Remove the URL from arguments, leaving only options
+WEBSITE_URL="${POSITIONAL[0]}"
+OUTPUT_FOLDER="${POSITIONAL[1]}"
 
 # Validate URL format
 if [[ ! $WEBSITE_URL =~ ^https?:// ]]; then
@@ -53,6 +73,18 @@ if [[ ! $WEBSITE_URL =~ ^https?:// ]]; then
 fi
 
 print_status "Starting website update workflow for: $WEBSITE_URL"
+
+# Extract domain name for directory
+DOMAIN=$(echo $WEBSITE_URL | sed -E 's|^https?://||' | sed 's|/$||')
+
+# Create temp folder
+TMP_PARENT=$(mktemp -d)
+SITE_TMP_ROOT="$TMP_PARENT/$DOMAIN"
+mkdir -p "$SITE_TMP_ROOT"
+export SITE_TMP_ROOT
+print_status "Using temp folder: $SITE_TMP_ROOT"
+
+# cd "$SITE_TMP_ROOT"
 
 # Step 1: Crawl and download the website
 print_status "Step 1: Crawling and downloading website..."
@@ -68,9 +100,27 @@ if [ -d "$DOMAIN" ]; then
 fi
 
 # Download the website
-wget --mirror --convert-links --adjust-extension --page-requisites --no-parent "$WEBSITE_URL"
+#wget -e robots=off --mirror --convert-links --adjust-extension --page-requisites --no-parent -P "$TMP_PARENT" "$WEBSITE_URL" > "$TMP_PARENT/crawl.log" 
+# Start wget in the background, output to log
+wget -e robots=off --mirror --convert-links --adjust-extension --page-requisites --no-parent -P "$TMP_PARENT" "$WEBSITE_URL" > "$TMP_PARENT/crawl.log" 2>&1 &
+WGET_PID=$!
 
-if [ $? -ne 0 ]; then
+# Show a live counter in the foreground
+while kill -0 $WGET_PID 2>/dev/null; do
+    COUNT=$(grep -c 'saved \[' "$TMP_PARENT/crawl.log")
+    echo -ne "\rFiles downloaded: $COUNT"
+    sleep 0.2
+done
+
+# Print final count and a newline
+COUNT=$(grep -c 'saved \[' "$TMP_PARENT/crawl.log")
+echo -e "\rFiles downloaded: $COUNT\n"
+
+# Wait for wget to finish (should be instant, but for safety)
+#wait $WGET_PID
+
+if [ $? -ne 0 ] && [ $? -ne 8 ]; then
+    print_error "wget return code: $?"
     print_error "Failed to download website. Please check the URL and try again."
     exit 1
 fi
@@ -79,7 +129,7 @@ print_success "Website downloaded successfully"
 
 # Explicitly download sitemap.xml and robots.txt if they exist
 print_status "Downloading sitemap.xml and robots.txt..."
-wget -O sitemap.xml "$WEBSITE_URL/sitemap.xml" 2>/dev/null
+wget -O "$SITE_TMP_ROOT/sitemap-downloaded.xml" "$WEBSITE_URL/sitemap.xml" 2>/dev/null
 if [ $? -eq 0 ]; then
     print_success "Sitemap.xml downloaded successfully"
 else
@@ -100,12 +150,11 @@ fi
 # fi
 
 # Step 2: Copy files to current directory
-print_status "Step 2: Copying files to current directory..."
-cp -r "$DOMAIN"/* .
-rm -rf "$DOMAIN"
+#print_status "Step 2: Copying files to current directory..."
+#cp -r "$SITE_TMP_ROOT"/* "$OUTPUT_FOLDER"
+#rm -rf "$SITE_TMP_ROOT"
 
-print_success "Files copied to current directory"
-
+#print_success "Files copied to current directory"
 # Step 3: Process CDN assets
 print_status "Step 3: Processing CDN assets and downloading local copies..."
 python3 cdn_to_local.py
@@ -116,7 +165,6 @@ if [ $? -ne 0 ]; then
 fi
 
 print_success "CDN assets processed successfully"
-
 # Step 4: Generate sitemap.xml
 print_status "Step 4: Generating sitemap.xml..."
 python3 generate_sitemap.py
@@ -130,7 +178,7 @@ print_success "Sitemap.xml generated successfully"
 
 # Step 5: Transform to clean URLs
 print_status "Step 5: Transforming HTML links to clean URLs..."
-python3 clean_urls.py "$@"
+python3 clean_urls.py
 
 if [ $? -ne 0 ]; then
     print_error "Failed to transform HTML links"
@@ -155,7 +203,7 @@ HTML_COUNT=$(find . -name "*.html" -not -path "./.git/*" | wc -l)
 print_success "Found $HTML_COUNT HTML files"
 
 # Check for any remaining .html links (should be minimal)
-REMAINING_HTML_LINKS=$(grep -r 'href="[^"]*\.html"' . --include="*.html" --exclude-dir=".git" | wc -l || echo "0")
+REMAINING_HTML_LINKS=$(grep -r 'href="[^\"]*\.html"' . --include="*.html" --exclude-dir=".git" | wc -l || echo "0")
 if [ "$REMAINING_HTML_LINKS" -gt 0 ]; then
     print_warning "Found $REMAINING_HTML_LINKS remaining .html links (these may be external or intentional)"
 fi
@@ -167,4 +215,33 @@ echo "  1. Review the generated vercel.json file"
 echo "  2. Test the website locally if needed"
 echo "  3. Deploy to Vercel: vercel --prod"
 echo ""
-print_status "The website now supports clean URLs without .html extensions!" 
+print_status "The website now supports clean URLs without .html extensions!"
+
+# Copy to output folder if provided, else print temp folder and do not delete
+if [ -n "$OUTPUT_FOLDER" ]; then
+    if [ ! -d "$OUTPUT_FOLDER" ]; then
+        print_error "Output folder does not exist: $OUTPUT_FOLDER"
+        print_status "Temporary folder preserved at: $SITE_TMP_ROOT"
+        unset SITE_TMP_ROOT
+        exit 1
+    fi
+    print_status "Copying result to output folder: $OUTPUT_FOLDER"
+    cp -r "$SITE_TMP_ROOT"/* "$OUTPUT_FOLDER"/
+    if [ $? -eq 0 ]; then
+        print_success "Site copied to $OUTPUT_FOLDER."
+    else
+        print_error "Failed to copy site to $OUTPUT_FOLDER."
+        exit 1
+    fi
+    if [ $NO_DELETE -eq 0 ]; then
+        cd /tmp
+        rm -rf "$TMP_PARENT"
+        print_success "Temporary folder deleted."
+    else
+        print_status "Temporary folder preserved at: $SITE_TMP_ROOT"
+    fi
+else
+    print_warning "No output folder specified. Temporary folder preserved at: $SITE_TMP_ROOT"
+fi
+
+unset SITE_TMP_ROOT 
