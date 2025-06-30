@@ -1,0 +1,36 @@
+{
+  "rewrites": [
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/about", 
+      "destination": "/about.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/projects",
+      "destination": "/projects.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/it",
+      "destination": "/it.html"
+    },
+    {
+      "source": "/it/contact",
+      "destination": "/it/contact.html"
+    },
+    {
+      "source": "/it/about",
+      "destination": "/it/about.html"
+    }
+  ]
+}
