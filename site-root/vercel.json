@@ -1,0 +1,144 @@
+{
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/blog/how-to-manage-remote-android-embedded-devices",
+      "destination": "/blog/how-to-manage-remote-android-embedded-devices.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/embedded-systems-projects",
+      "destination": "/embedded-systems-projects.html"
+    },
+    {
+      "source": "/it/about",
+      "destination": "/it/about.html"
+    },
+    {
+      "source": "/it/blog/how-to-manage-remote-android-embedded-devices",
+      "destination": "/it/blog/how-to-manage-remote-android-embedded-devices.html"
+    },
+    {
+      "source": "/it/blog",
+      "destination": "/it/blog.html"
+    },
+    {
+      "source": "/it/contact",
+      "destination": "/it/contact.html"
+    },
+    {
+      "source": "/it/embedded-systems-projects",
+      "destination": "/it/embedded-systems-projects.html"
+    },
+    {
+      "source": "/it/privacy-policy",
+      "destination": "/it/privacy-policy.html"
+    },
+    {
+      "source": "/it/project-categories/embedded-product",
+      "destination": "/it/project-categories/embedded-product.html"
+    },
+    {
+      "source": "/it/projects/agvs-for-automated-logistics",
+      "destination": "/it/projects/agvs-for-automated-logistics.html"
+    },
+    {
+      "source": "/it/projects/evbox---ev-chargers",
+      "destination": "/it/projects/evbox---ev-chargers.html"
+    },
+    {
+      "source": "/it/services/allineamento-comunicazione-stakeholder",
+      "destination": "/it/services/allineamento-comunicazione-stakeholder.html"
+    },
+    {
+      "source": "/it/services/consulenza-sistemi-embedded",
+      "destination": "/it/services/consulenza-sistemi-embedded.html"
+    },
+    {
+      "source": "/it/services/direzione-tecnica-team-coaching",
+      "destination": "/it/services/direzione-tecnica-team-coaching.html"
+    },
+    {
+      "source": "/it/services/miglioramento-processi-trasformazione-agile",
+      "destination": "/it/services/miglioramento-processi-trasformazione-agile.html"
+    },
+    {
+      "source": "/it/services/risoluzione-problemi-interdisciplinari-embedded-triage-debug",
+      "destination": "/it/services/risoluzione-problemi-interdisciplinari-embedded-triage-debug.html"
+    },
+    {
+      "source": "/it/services/risoluzione-problemi-interdisciplinari",
+      "destination": "/it/services/risoluzione-problemi-interdisciplinari.html"
+    },
+    {
+      "source": "/it/services/sviluppo-prodotto-embedded-roadmap",
+      "destination": "/it/services/sviluppo-prodotto-embedded-roadmap.html"
+    },
+    {
+      "source": "/it/services",
+      "destination": "/it/services.html"
+    },
+    {
+      "source": "/it",
+      "destination": "/it.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/project-categories/embedded-product",
+      "destination": "/project-categories/embedded-product.html"
+    },
+    {
+      "source": "/projects/agvs-for-automated-logistics",
+      "destination": "/projects/agvs-for-automated-logistics.html"
+    },
+    {
+      "source": "/projects/evbox---ev-chargers",
+      "destination": "/projects/evbox---ev-chargers.html"
+    },
+    {
+      "source": "/services/cross-disciplinary-problem-solving-embedded",
+      "destination": "/services/cross-disciplinary-problem-solving-embedded.html"
+    },
+    {
+      "source": "/services/embedded-debugging-triage",
+      "destination": "/services/embedded-debugging-triage.html"
+    },
+    {
+      "source": "/services/embedded-product-roadmap-alignment",
+      "destination": "/services/embedded-product-roadmap-alignment.html"
+    },
+    {
+      "source": "/services/embedded-systems-consulting",
+      "destination": "/services/embedded-systems-consulting.html"
+    },
+    {
+      "source": "/services/embedded-technical-leadership-coaching",
+      "destination": "/services/embedded-technical-leadership-coaching.html"
+    },
+    {
+      "source": "/services/process-improvement-agile-transformation",
+      "destination": "/services/process-improvement-agile-transformation.html"
+    },
+    {
+      "source": "/services/stakeholder-communication-alignment",
+      "destination": "/services/stakeholder-communication-alignment.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    }
+  ]
+}

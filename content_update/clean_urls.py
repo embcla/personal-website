@@ -7,6 +7,20 @@ import argparse
 import sys
 from urllib.parse import urlparse, unquote
 
+# --- NEW: Ensure SITE_TMP_ROOT is set and chdir into it ---
+def ensure_site_tmp_root():
+    site_tmp_root = os.environ.get('SITE_TMP_ROOT')
+    if not site_tmp_root:
+        print("[ERROR] SITE_TMP_ROOT environment variable is not set. This script must be run from update_workflow.sh.")
+        sys.exit(1)
+    if not os.path.isdir(site_tmp_root):
+        print(f"[ERROR] SITE_TMP_ROOT directory does not exist: {site_tmp_root}")
+        sys.exit(1)
+    os.chdir(site_tmp_root)
+    print(f"[INFO] Working directory set to SITE_TMP_ROOT: {site_tmp_root}")
+    return site_tmp_root
+# --- END NEW ---
+
 def get_clean_url_from_path(file_path):
     """Convert file path to clean URL by removing .html extension and adjusting path."""
     # Convert Path object to string and normalize
@@ -182,6 +196,7 @@ def update_vercel_json(rewrites, dry_run=False):
         return False
 
 def main():
+    ensure_site_tmp_root()
     parser = argparse.ArgumentParser(description='Transform HTML links to clean URLs and generate vercel.json rewrites.')
     parser.add_argument('--dry-run', action='store_true', help='Show what would be changed without making changes')
     parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
