@@ -1,6 +1,3 @@
-update.sh
-cdn_to_local.py
-test-retrieval.py
 contentCMS
 seo-validation
-requirements.txt
+content_update
