@@ -7,10 +7,10 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/about"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/blog/how-to-manage-remote</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/how-to-manage-remote"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/how-to-manage-remote"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/how-to-manage-remote"/>
+        <loc>https://www.claudio-carbone.tech/blog/how-to-manage-remote-android-embedded-devices</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/how-to-manage-remote-android-embedded-devices"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/how-to-manage-remote-android-embedded-devices"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/how-to-manage-remote-android-embedded-devices"/>
     </url>
     <url>
         <loc>https://www.claudio-carbone.tech/blog</loc>
@@ -25,6 +25,12 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/contact"/>
     </url>
     <url>
+        <loc>https://www.claudio-carbone.tech/embedded-systems-projects</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/embedded-systems-projects"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/embedded-systems-projects"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/embedded-systems-projects"/>
+    </url>
+    <url>
         <loc>https://www.claudio-carbone.tech/</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/"/>
         <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/"/>
@@ -37,10 +43,10 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/about"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/it/blog/how-to-manage-remote</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/how-to-manage-remote"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/how-to-manage-remote"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/how-to-manage-remote"/>
+        <loc>https://www.claudio-carbone.tech/it/blog/how-to-manage-remote-android-embedded-devices</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/blog/how-to-manage-remote-android-embedded-devices"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/blog/how-to-manage-remote-android-embedded-devices"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/blog/how-to-manage-remote-android-embedded-devices"/>
     </url>
     <url>
         <loc>https://www.claudio-carbone.tech/it/blog</loc>
@@ -53,6 +59,18 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/contact"/>
         <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/contact"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/contact"/>
+    </url>
+    <url>
+        <loc>https://www.claudio-carbone.tech/it/embedded-systems-projects</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/embedded-systems-projects"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/embedded-systems-projects"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/embedded-systems-projects"/>
+    </url>
+    <url>
+        <loc>https://www.claudio-carbone.tech/it/privacy-policy</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/privacy-policy"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/privacy-policy"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/privacy-policy"/>
     </url>
     <url>
         <loc>https://www.claudio-carbone.tech/it/project-categories/embedded-product</loc>
@@ -73,28 +91,34 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects/evbox---ev-chargers"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/it/projects</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/projects"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/projects"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects"/>
+        <loc>https://www.claudio-carbone.tech/it/services/cross-disciplinary-problem-solving-embedded</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving-embedded"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/cross-disciplinary-problem-solving-embedded"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving-embedded"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/it/services/cross-disciplinary-problem-solving</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/cross-disciplinary-problem-solving"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving"/>
+        <loc>https://www.claudio-carbone.tech/it/services/embedded-debugging-triage</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-debugging-triage"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-debugging-triage"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-debugging-triage"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/it/services/embedded-sys-consultation</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-sys-consultation"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-sys-consultation"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-sys-consultation"/>
+        <loc>https://www.claudio-carbone.tech/it/services/embedded-product-roadmap-alignment</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-product-roadmap-alignment"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-product-roadmap-alignment"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-product-roadmap-alignment"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/it/services/issue-analysis-resolution-debugging-triage</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/issue-analysis-resolution-debugging-triage"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage"/>
+        <loc>https://www.claudio-carbone.tech/it/services/embedded-systems-consulting</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-systems-consulting"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-systems-consulting"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-systems-consulting"/>
+    </url>
+    <url>
+        <loc>https://www.claudio-carbone.tech/it/services/embedded-technical-leadership-coaching</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-technical-leadership-coaching"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-technical-leadership-coaching"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-technical-leadership-coaching"/>
     </url>
     <url>
         <loc>https://www.claudio-carbone.tech/it/services/process-improvement-agile-transformation</loc>
@@ -103,22 +127,10 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/process-improvement-agile-transformation"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/it/services/product-development-roadmap-alignment</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/product-development-roadmap-alignment"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/product-development-roadmap-alignment"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/product-development-roadmap-alignment"/>
-    </url>
-    <url>
         <loc>https://www.claudio-carbone.tech/it/services/stakeholder-communication-alignment</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/stakeholder-communication-alignment"/>
         <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/stakeholder-communication-alignment"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/stakeholder-communication-alignment"/>
-    </url>
-    <url>
-        <loc>https://www.claudio-carbone.tech/it/services/technical-leadership-team-coaching</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/technical-leadership-team-coaching"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/technical-leadership-team-coaching"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/technical-leadership-team-coaching"/>
     </url>
     <url>
         <loc>https://www.claudio-carbone.tech/it/services</loc>
@@ -131,6 +143,12 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/"/>
         <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/"/>
+    </url>
+    <url>
+        <loc>https://www.claudio-carbone.tech/privacy-policy</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/privacy-policy"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/privacy-policy"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/privacy-policy"/>
     </url>
     <url>
         <loc>https://www.claudio-carbone.tech/project-categories/embedded-product</loc>
@@ -151,28 +169,34 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects/evbox---ev-chargers"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/projects</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/projects"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/projects"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/projects"/>
+        <loc>https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving-embedded</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving-embedded"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/cross-disciplinary-problem-solving-embedded"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving-embedded"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/cross-disciplinary-problem-solving"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/cross-disciplinary-problem-solving"/>
+        <loc>https://www.claudio-carbone.tech/services/embedded-debugging-triage</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-debugging-triage"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-debugging-triage"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-debugging-triage"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/services/embedded-sys-consultation</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-sys-consultation"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-sys-consultation"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-sys-consultation"/>
+        <loc>https://www.claudio-carbone.tech/services/embedded-product-roadmap-alignment</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-product-roadmap-alignment"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-product-roadmap-alignment"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-product-roadmap-alignment"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/issue-analysis-resolution-debugging-triage"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/issue-analysis-resolution-debugging-triage"/>
+        <loc>https://www.claudio-carbone.tech/services/embedded-systems-consulting</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-systems-consulting"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-systems-consulting"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-systems-consulting"/>
+    </url>
+    <url>
+        <loc>https://www.claudio-carbone.tech/services/embedded-technical-leadership-coaching</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/embedded-technical-leadership-coaching"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/embedded-technical-leadership-coaching"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/embedded-technical-leadership-coaching"/>
     </url>
     <url>
         <loc>https://www.claudio-carbone.tech/services/process-improvement-agile-transformation</loc>
@@ -181,22 +205,10 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/process-improvement-agile-transformation"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/services/product-development-roadmap-alignment</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/product-development-roadmap-alignment"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/product-development-roadmap-alignment"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/product-development-roadmap-alignment"/>
-    </url>
-    <url>
         <loc>https://www.claudio-carbone.tech/services/stakeholder-communication-alignment</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/stakeholder-communication-alignment"/>
         <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/stakeholder-communication-alignment"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/stakeholder-communication-alignment"/>
-    </url>
-    <url>
-        <loc>https://www.claudio-carbone.tech/services/technical-leadership-team-coaching</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/services/technical-leadership-team-coaching"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/services/technical-leadership-team-coaching"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/services/technical-leadership-team-coaching"/>
     </url>
     <url>
         <loc>https://www.claudio-carbone.tech/services</loc>
