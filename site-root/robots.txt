@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /search
+Disallow: /*?s=*
+Allow: /public-content/
+Sitemap: https://www.claudio-carbone.tech/sitemap.xml
+# Block image files
+Disallow: /*.jpg$
+# Allow CSS and JS for rendering
+Allow: /*.css
+Allow: /*.js
