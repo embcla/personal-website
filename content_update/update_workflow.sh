@@ -187,8 +187,21 @@ fi
 
 print_success "HTML links transformed successfully"
 
-# Step 6: Final verification
-print_status "Step 6: Final verification..."
+# Step 6: Fix Open Graph image URLs
+print_status "Step 6: Fixing Open Graph image URLs..."
+python3 fix_og_image_urls.py
+
+if [ $? -ne 0 ]; then
+    print_error "Failed to fix Open Graph image URLs"
+    print_status "Temporary folder preserved at: $SITE_TMP_ROOT"
+    exit 1
+fi
+
+print_success "Open Graph image URLs fixed successfully"
+
+# Step 7: Final verification
+print_status "Step 7: Final verification..."
+
 
 # Check if vercel.json was created/updated
 if [ -f "vercel.json" ]; then
