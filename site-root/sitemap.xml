@@ -73,12 +73,6 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/privacy-policy"/>
     </url>
     <url>
-        <loc>https://www.claudio-carbone.tech/it/project-categories/embedded-product</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/project-categories/embedded-product"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/project-categories/embedded-product"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/project-categories/embedded-product"/>
-    </url>
-    <url>
         <loc>https://www.claudio-carbone.tech/it/projects/agvs-for-automated-logistics</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/projects/agvs-for-automated-logistics"/>
         <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/projects/agvs-for-automated-logistics"/>
@@ -149,12 +143,6 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/privacy-policy"/>
         <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/privacy-policy"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/privacy-policy"/>
-    </url>
-    <url>
-        <loc>https://www.claudio-carbone.tech/project-categories/embedded-product</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.claudio-carbone.tech/project-categories/embedded-product"/>
-        <xhtml:link rel="alternate" hreflang="it" href="https://www.claudio-carbone.tech/it/project-categories/embedded-product"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.claudio-carbone.tech/project-categories/embedded-product"/>
     </url>
     <url>
         <loc>https://www.claudio-carbone.tech/projects/agvs-for-automated-logistics</loc>

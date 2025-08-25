@@ -45,10 +45,6 @@
       "destination": "/it/privacy-policy.html"
     },
     {
-      "source": "/it/project-categories/embedded-product",
-      "destination": "/it/project-categories/embedded-product.html"
-    },
-    {
       "source": "/it/projects/agvs-for-automated-logistics",
       "destination": "/it/projects/agvs-for-automated-logistics.html"
     },
@@ -95,10 +91,6 @@
     {
       "source": "/privacy-policy",
       "destination": "/privacy-policy.html"
-    },
-    {
-      "source": "/project-categories/embedded-product",
-      "destination": "/project-categories/embedded-product.html"
     },
     {
       "source": "/projects/agvs-for-automated-logistics",
